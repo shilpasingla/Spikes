@@ -30,9 +30,25 @@
 
 	* [Comparision with Mysql on Performance](http://www.jpab.org/Hibernate/H2/server/Hibernate/MySQL/server.html)
 
-	* ORM is Hibernate or JDBC
+	* JDBC with Mysql
 
-	
+		* download mysql-connector/J 
+
+		* add mysql-connector-java-ver-bin.jar to project library.
+
+		* use com.mysql.jdbc.Driver as parameter for Class.forName()
+
+		* establish a connection with local url jdbc:mysql://127.0.0.1:3306/DATABASE (replace DATABASE)
+
+	* JDBC with H2
+
+
+	* Hibernate with Mysql
+
+
+
+
+
 
 
 		
