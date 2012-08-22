@@ -16,7 +16,7 @@ public class jdbcConnection {
 
             Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/tm_development",
                                                           "root",
-                                                          "1234567890");
+                                                          "shilpa");
             System.out.println("Creating statement...");
             try {
                 DatabaseMetaData dbm = conn.getMetaData();
