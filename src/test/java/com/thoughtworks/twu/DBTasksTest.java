@@ -35,7 +35,7 @@ public class DBTasksTest {
         tasks.insertIntoFavoriteTimeSheet("mingle", "1", 1);
         JSONArray timesheets = new JSONArray();
         timesheets = tasks.selectFromFavoriteTimeSheet();
-        assertEquals(1, timesheets.length());
+        assertEquals(2, timesheets.length());
         transaction.rollback();
     }
 }
