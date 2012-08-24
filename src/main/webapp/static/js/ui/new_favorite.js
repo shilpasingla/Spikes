@@ -1,19 +1,9 @@
 $(function() {
     $.mobile.ajaxEnabled = false;
 
-    $.validator.addMethod("duplicateFavorite", function(value) {
+    var favorite = new FavoriteTimesheet();
 
-        var isValid = true;
-
-        $('#existingFavorites > li').each(function(){
-            if ( $(this).text() == value ) {
-                isValid = false;
-            }
-        });
-
-        return isValid;
-    }, 'Duplicate name. Please try another name.');
-
+    $.validator.addMethod("duplicateFavorite", favorite.existsFavoriteName);
 
     $("#new_favorite_form").validate({
         rules: {
@@ -23,7 +13,10 @@ $(function() {
             }
         },
         messages: {
-            name: "Name field cannot be left blank."
+            name: {
+                required: "Name field cannot be left blank.",
+                duplicateFavorite: "Duplicate name. Please try another name."
+            }
         }
     });
 });

@@ -1,25 +1,21 @@
 function FavoriteTimesheet()
 {
-    this.name = "";
+    this.existingFavorites = [];
 
-    this.errors = [];
-
-    this.setName = function(name) {
-        this.name = name;
+    this.addExistingFavoriteName = function(name) {
+        this.existingFavorites.push(name);
     };
 
-    this.validate = function() {
-        this.errors = [];
+    this.existsFavoriteName = function(value) {
 
-        if ( this.name == "" ) {
-            this.errors.push({field:"name", message:"Name field can not be blank."});
-            return false;
-        }
+        var existsFavoriteName = false;
 
-        return true;
-    };
+        $(this.existingFavorites).each(function(){
+            if ( this == value ) {
+                existsFavoriteName = true;
+            }
+        });
 
-    this.getErrors = function() {
-        return this.errors;
+        return existsFavoriteName;
     };
 }

@@ -9,6 +9,7 @@
     <script type="text/javascript" src="../../static/js/lib/jquery.mobile-1.2.0-alpha.1.min.js"></script>
     <script type="text/javascript" src="../../static/js/lib/jquery.form.js" ></script>
     <script type="text/javascript" src="../../static/js/lib/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../static/js/favorite_timesheet.js"></script>
     <script type="text/javascript" src="../../static/js/ui/new_favorite.js"></script>
 </head>
 <body>

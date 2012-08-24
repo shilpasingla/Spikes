@@ -1,26 +1,12 @@
 
 describe("Favourite Timesheet", function() {
 
-    beforeEach(function() {
-
-    });
-
-    it("should be able to validate empty name", function() {
+    it("should be able to identify duplicated favorite name", function() {
         var favorite = new FavoriteTimesheet();
-        favorite.setName("");
+        favorite.addExistingFavoriteName("TWU");
 
-        expect(favorite.validate()).toEqual(false);
+        expect(favorite.existsFavoriteName("TWU")).toEqual(true);
     });
-
-    /*it("should be able to populate state combo for USA", function() {
-
-    });
-
-    it("should be able to populate state combo for any other", function() {
-
-    });*/
-
-
 
 });
 

@@ -35,6 +35,9 @@ public class FavoriteTimesheetTest {
 
     @Test
     public void shouldValidateEmptyFavoriteName() throws Exception {
+        //Given
 
+        //When
+        //Then
     }
 }
