@@ -1,16 +1,26 @@
 $(function() {
-    var newFavorite = new FavoriteTimesheet();
+    $.mobile.ajaxEnabled = false;
 
-    $("#name").change(function(){
-        newFavorite.setName($(this).val());
-    });
+    $.validator.addMethod("duplicateFavorite", function(value) {
 
-    $("#submit").click(function(){
-        if ( !newFavorite.validate() ) {
-            alert(newFavorite.getErrors()[0].message);
-            return false;
-        } else {
-            alert("Nice");
+        var isValid = true;
+
+        $('#existingFavorites > li').each(function(){
+            if ( $(this).text() == value ) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }, 'Duplicate name. Please try another name.');
+
+
+    $("#new_favorite_form").validate({
+        rules: {
+            name: {
+                duplicateFavorite : true,
+                required: true
+            }
         }
     });
 });

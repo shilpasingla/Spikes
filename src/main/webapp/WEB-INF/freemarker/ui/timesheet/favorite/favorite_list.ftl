@@ -16,7 +16,10 @@
         <h1>My Favourites</h1>
     </div>
 
-    <ul data-role="favorites" data-theme="a">
+    <ul data-role="listview" data-theme="a">
+        <#list favoriteTimesheets as item>
+            <li><a href="#">${item.name}</a></li>
+        </#list>
     </ul>
 
     <!--<button type="add" data-theme="a" name="add" value="add_favorite" data-icon="plus">Add favorite</button>-->

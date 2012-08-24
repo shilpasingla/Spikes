@@ -3,10 +3,12 @@
 <head>
     <title>Test UI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/css/base.css" />
     <link rel="stylesheet" href="../../static/css/jquery.mobile-1.2.0-alpha.1.min.css" />
     <script type="text/javascript" src="../../static/js/lib/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="../../static/js/lib/jquery.mobile-1.2.0-alpha.1.min.js"></script>
-    <script type="text/javascript" src="../../static/js/favorite_timesheet.js"></script>
+    <script type="text/javascript" src="../../static/js/lib/jquery.form.js" ></script>
+    <script type="text/javascript" src="../../static/js/lib/jquery.validate.min.js"></script>
     <script type="text/javascript" src="../../static/js/ui/new_favorite.js"></script>
 </head>
 <body>
@@ -16,10 +18,17 @@
         <h1>My Favourite Time Sheet</h1>
     </div>
 
-    <form action="" method="post" data-ajax="true" class="ui-body ui-body-a ui-corner-all">
+    <form id="new_favorite_form" action="" method="post" data-ajax="true" class="ui-body ui-body-a ui-corner-all">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" value=""  />
+        <input type="text" name="name" id="name" value="" />
 
+        <ul id="existingFavorites" class="hidden">
+            <#list existingFavorites as item>
+                <li>${item.name}</li>
+            </#list>
+        </ul>
+
+        <!--
         <label for="country" class="select">Country</label>
         <select name="country" id="country">
             <#list countries as country>
@@ -62,10 +71,10 @@
         <input type="text" name="saturday" id="saturday" value=""  />
 
         <label for="sunday">Sunday</label>
-        <input type="text" name="sunday" id="sunday" value=""  />
+        <input type="text" name="sunday" id="sunday" value=""  /> -->
 
 
-        <button type="submit" data-theme="a" name="submit" id="submit" value="submit-value">Submit</button>
+        <button type="submit" data-theme="a" data-ajax="true" name="submit" id="submit" value="submit-value">Submit</button>
     </form>
 </div>
 
