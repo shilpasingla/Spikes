@@ -21,6 +21,9 @@ $(function() {
                 duplicateFavorite : true,
                 required: true
             }
+        },
+        messages: {
+            name: "Name field cannot be left blank."
         }
     });
 });
