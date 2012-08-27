@@ -2,10 +2,7 @@ package com.thoughtworks.twu.persistence;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table( name = "favoritetimesheet" )
@@ -15,7 +12,8 @@ public class FavoriteTimesheet {
     @GeneratedValue(generator="id")
     @GenericGenerator(name="id", strategy = "increment")
     private int id;
-    private String name;
+
+    private String name = "Default";
     private String userId;
 
     public void setName(String name) {
@@ -26,4 +24,7 @@ public class FavoriteTimesheet {
         this.userId = userId;
     }
 
+    public String getName() {
+        return name;
+    }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FavoriteTimesheetService {
 
-    private List<FavoriteTimesheet> favoriteTimesheets = new ArrayList<>();
+    private List<FavoriteTimesheet> favoriteTimesheets = new ArrayList<FavoriteTimesheet>();
 
     public FavoriteTimesheetService() {
     }
