@@ -11,8 +11,6 @@ public class FavoriteTimesheetService {
 
     private List<FavoriteTimesheet> favoriteTimesheets = new ArrayList<FavoriteTimesheet>();
 
-    public FavoriteTimesheetService() {
-    }
 
     public List<FavoriteTimesheet> getFavoriteTimesheets() {
         HibernateConnection connection = HibernateConnection.getInstance();
@@ -24,6 +22,10 @@ public class FavoriteTimesheetService {
     }
 
     public void save(FavoriteTimesheet favorite) {
+        HibernateConnection connection = HibernateConnection.getInstance();
+        Session session = connection.getSession();
 
+        session.save(favorite);
+        session.flush();
     }
 }
