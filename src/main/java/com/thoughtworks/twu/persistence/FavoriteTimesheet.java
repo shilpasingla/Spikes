@@ -16,6 +16,9 @@ public class FavoriteTimesheet {
     private String name;
     private String userId;
 
+    public FavoriteTimesheet() {
+    }
+
     public FavoriteTimesheet(String name) {
         this.name = name;
         this.userId = "1234";

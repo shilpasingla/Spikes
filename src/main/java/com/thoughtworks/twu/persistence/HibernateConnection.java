@@ -19,6 +19,7 @@ public class HibernateConnection {
 
     private static HibernateConnection instance;
     private Session session;
+    private SessionFactory sessionFactory;
 
     public static HibernateConnection getInstance() {
         if ( instance == null )
@@ -34,11 +35,14 @@ public class HibernateConnection {
     private void configDb() {
         Configuration configuration = new Configuration().configure();
         ServiceRegistry service = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-        SessionFactory sessionFactory = configuration.buildSessionFactory(service);
+        sessionFactory = configuration.buildSessionFactory(service);
         session = sessionFactory.openSession();
     }
 
     public Session getSession() {
+        if ( !session.isOpen() )
+            session = sessionFactory.openSession();
+
         return session;
     }
 }
