@@ -3,7 +3,7 @@ $(function() {
 
     var favorite = new FavoriteTimesheet();
 
-    $.validator.addMethod("duplicateFavorite", favorite.existsFavoriteName);
+    $.validator.addMethod("duplicateFavorite", favorite.isNotDuplicated);
 
     $("#new_favorite_form").validate({
         rules: {
