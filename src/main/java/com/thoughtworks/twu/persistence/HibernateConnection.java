@@ -17,20 +17,28 @@ import org.json.JSONException;
 
 public class HibernateConnection {
 
-    public static void main(String[] args) throws JSONException {
+    private static HibernateConnection instance;
+    private Session session;
 
-        ServiceRegistry service = null;
+    public static HibernateConnection getInstance() {
+        if ( instance == null )
+            instance = new HibernateConnection();
 
-        Configuration configuration = new Configuration().configure();
-        service = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory(service);
-        Session session =sessionFactory.openSession();
-        DBTasks tasks = new DBTasks(session);
-        Transaction transaction= session.beginTransaction();
-        tasks.insertIntoFavoriteTimeSheet("gap","12",1);
-        transaction.commit();
-        tasks.selectFromFavoriteTimeSheet();
+        return instance;
     }
 
+    private HibernateConnection() {
+        configDb();
+    }
 
+    private void configDb() {
+        Configuration configuration = new Configuration().configure();
+        ServiceRegistry service = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+        SessionFactory sessionFactory = configuration.buildSessionFactory(service);
+        session = sessionFactory.openSession();
+    }
+
+    public Session getSession() {
+        return session;
+    }
 }

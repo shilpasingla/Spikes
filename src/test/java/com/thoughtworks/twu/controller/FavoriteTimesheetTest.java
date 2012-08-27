@@ -1,7 +1,7 @@
 package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.Country;
-import com.thoughtworks.twu.domain.FavoriteTimesheet;
+import com.thoughtworks.twu.persistence.FavoriteTimesheet;
 import com.thoughtworks.twu.service.CountryService;
 import com.thoughtworks.twu.service.FavoriteTimesheetService;
 import org.junit.Test;
@@ -30,14 +30,6 @@ public class FavoriteTimesheetTest {
         //When
         List<FavoriteTimesheet> timesheets = timesheetService.getFavoriteTimesheets();
         //Then
-        assertThat(timesheets.size(), is(4));
-    }
-
-    @Test
-    public void shouldValidateEmptyFavoriteName() throws Exception {
-        //Given
-
-        //When
-        //Then
+        assertThat(timesheets.size(), is(1));
     }
 }
