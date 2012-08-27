@@ -2,6 +2,7 @@ package com.thoughtworks.twu.controller;
 
 import com.thoughtworks.twu.domain.User;
 import com.thoughtworks.twu.domain.timesheet.forms.FavoriteTimesheetForm;
+import com.thoughtworks.twu.persistence.FavoriteTimesheet;
 import com.thoughtworks.twu.service.CountryService;
 import com.thoughtworks.twu.service.FavoriteTimesheetService;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,11 @@ public class FavoriteTimesheetController {
     @RequestMapping(value = "/timesheet/favorite/new", method = RequestMethod.POST)
     public ModelAndView doNewFavorite(@ModelAttribute("form") FavoriteTimesheetForm form) {
 
+        FavoriteTimesheetService service = new FavoriteTimesheetService();
+
+        FavoriteTimesheet favorite = form.toFavoriteTimesheet();
+
+        service.save(favorite);
 
         return newFavorite();
     }

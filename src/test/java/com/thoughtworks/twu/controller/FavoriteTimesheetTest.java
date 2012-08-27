@@ -9,7 +9,9 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class FavoriteTimesheetTest {
     @Test
@@ -30,6 +32,12 @@ public class FavoriteTimesheetTest {
         //When
         List<FavoriteTimesheet> timesheets = timesheetService.getFavoriteTimesheets();
         //Then
-        assertThat(timesheets.size(), is(1));
+        assertNotNull(timesheets);
+    }
+
+    @Test
+    public void shouldSaveMyFavoriteTimesheet()
+    {
+
     }
 }

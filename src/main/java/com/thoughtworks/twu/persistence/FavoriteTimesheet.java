@@ -13,15 +13,12 @@ public class FavoriteTimesheet {
     @GenericGenerator(name="id", strategy = "increment")
     private int id;
 
-    private String name = "Default";
+    private String name;
     private String userId;
 
-    public void setName(String name) {
+    public FavoriteTimesheet(String name) {
         this.name = name;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+        this.userId = "1234";
     }
 
     public String getName() {

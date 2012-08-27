@@ -18,8 +18,12 @@ public class FavoriteTimesheetService {
         HibernateConnection connection = HibernateConnection.getInstance();
         Session session = connection.getSession();
 
-        favoriteTimesheets =  session.createQuery("from com.thoughtworks.twu.persistence.FavoriteTimesheet").list();
+        favoriteTimesheets = session.createQuery("from com.thoughtworks.twu.persistence.FavoriteTimesheet").list();
 
         return favoriteTimesheets;
+    }
+
+    public void save(FavoriteTimesheet favorite) {
+
     }
 }
